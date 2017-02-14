@@ -1,0 +1,34 @@
+{
+  "name": "hapi-postgres",
+  "version": "1.0.0",
+  "description": "A boilerplate of using hapi to build REST APIs with postgreSQL as a document store",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanfeng/hapi-postgres.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "hapi",
+    "nodejs",
+    "javascript",
+    "postgres",
+    "postgreSQL",
+    "json",
+    "jsonb",
+    "rest",
+    "api"
+  ],
+  "author": "Yanfeng Tian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yanfeng/hapi-postgres/issues"
+  },
+  "homepage": "https://github.com/yanfeng/hapi-postgres#readme",
+  "dependencies": {
+    "hapi": "^16.1.0"
+  }
+}
