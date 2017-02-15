@@ -1,11 +1,10 @@
 'use strict';
 
 //import BookService from 'BookService'
+import Hapi from 'hapi'
+import massive from 'massive'
 
-const massive = require("massive");
 const connectionString = "postgres://postgres:123456@localhost/books";
-
-const Hapi = require('hapi');
 
 // Create a server with a host and port
 const server = new Hapi.Server();
