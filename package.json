@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/yanfeng/hapi-postgres#readme",
   "dependencies": {
-    "hapi": "^16.1.0"
+    "hapi": "^16.1.0",
+    "massive": "^2.6.0"
   }
 }

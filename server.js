@@ -1,5 +1,10 @@
 'use strict';
 
+//import BookService from 'BookService'
+
+const massive = require("massive");
+const connectionString = "postgres://postgres:123456@localhost/books";
+
 const Hapi = require('hapi');
 
 // Create a server with a host and port
@@ -22,7 +27,12 @@ server.route({
     method: 'GET',
     path: '/books',
     handler: function (request, reply) {
-        return reply('all books')
+        const db = massive.connectSync({connectionString: connectionString});
+        
+        //const bookService = new BookService(db);
+        db.books.findDoc(function(err, res){
+            return reply(res);
+        });//bookService.findBooks();
     }
 });
 
@@ -30,6 +40,19 @@ server.route({
     method: 'POST',
     path: '/books',
     handler: function (request, reply) {
+        const db = massive.connectSync({connectionString: connectionString});
+        const newDoc = {
+            title : "Chicken Ate Nine",
+            description: "A book about chickens of Kauai",
+            price : 99.00,
+            tags : [
+                {name : "Simplicity", slug : "simple"},
+                {name : "Fun for All", slug : "fun-for-all"}
+            ]
+        };
+        db.saveDoc("books", newDoc, function(err, res) {
+            console.info("saved");
+        });
         return reply('create')
     }
 });
