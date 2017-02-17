@@ -2,6 +2,7 @@
 
 import Hapi from 'hapi'
 import massive from 'massive'
+import Joi from 'joi'
 import BookService from './bookService'
 
 const connectionString = "postgres://postgres:123456@localhost/books";
@@ -44,6 +45,16 @@ server.route({
         bookService.createBook(data.title, data.description, data.price, data.tags)
             .then(book => reply(book))
             .catch(reason => console.error(reason));
+    },
+    config: {
+        validate: {
+            payload: {
+                title: Joi.string().required().max(100),
+                description: Joi.string().required().max(1000),
+                price: Joi.number().min(0),
+                tags: Joi.array()
+            }
+        }
     }
 });
 
@@ -56,6 +67,16 @@ server.route({
         bookService.changeBook(id, data.title, data.description, data.price, data.tags)
             .then(book => reply(book))
             .catch(reason => console.error(reason));
+    },
+    config: {
+        validate: {
+            payload: {
+                title: Joi.string().required().max(100),
+                description: Joi.string().required().max(1000),
+                price: Joi.number().min(0),
+                tags: Joi.array()
+            }
+        }
     }
 });
 
