@@ -2,9 +2,9 @@
   "name": "hapi-postgres",
   "version": "1.0.0",
   "description": "A boilerplate of using hapi to build REST APIs with postgreSQL as a document store",
-  "main": "index.js",
+  "main": "bootstrap.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node bootstrap.js",
     "test": "test"
   },
   "repository": {
