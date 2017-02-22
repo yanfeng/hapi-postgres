@@ -4,8 +4,11 @@
   "description": "A boilerplate of using hapi to build REST APIs with postgreSQL as a document store",
   "main": "bootstrap.js",
   "scripts": {
+    "start:watch": "node_modules\\.bin\\npm-run-all --parallel start lint:watch",
     "start": "node bootstrap.js",
-    "test": "test"
+    "test": "test",
+    "lint": "node_modules\\.bin\\esw bootstrap.js src --color",
+    "lint:watch": "npm run lint -- --watch"
   },
   "repository": {
     "type": "git",
@@ -36,5 +39,10 @@
     "hapi": "^16.1.0",
     "joi": "^10.2.2",
     "massive": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.0",
+    "eslint-watch": "^3.0.0",
+    "npm-run-all": "^4.0.1"
   }
 }

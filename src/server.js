@@ -1,19 +1,19 @@
 'use strict';
 
-import Hapi from 'hapi'
-import massive from 'massive'
-import Joi from 'joi'
-import BookService from './bookService'
+import Hapi from 'hapi';
+import massive from 'massive';
+import Joi from 'joi';
+import BookService from './bookService';
 
-const connectionString = "postgres://postgres:123456@localhost/books";
+const connectionString = 'postgres://postgres:123456@localhost/books';
 const db = massive.connectSync({connectionString: connectionString});
 const bookService = new BookService(db);
 
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({ 
-    host: 'localhost', 
-    port: 8000 
+    host: 'localhost',
+    port: 8000
 });
 
 // Add the route
@@ -96,15 +96,15 @@ server.route({
     path: '/books/sample',
     handler: function (request, reply) {
         const newDoc = {
-            title : "Chicken Ate Nine",
-            description: "A book about chickens of Kauai",
+            title : 'Chicken Ate Nine',
+            description: 'A book about chickens of Kauai',
             price : 99.00,
             tags : [
-                {name : "Simplicity", slug : "simple"},
-                {name : "Fun for All", slug : "fun-for-all"}
+                {name : 'Simplicity', slug : 'simple'},
+                {name : 'Fun for All', slug : 'fun-for-all'}
             ]
         };
-        db.saveDoc("books", newDoc, function(err, res) {
+        db.saveDoc('books', newDoc, function(err, res) {
             reply(res);
         });
     }
@@ -116,5 +116,5 @@ server.start((err) => {
     if (err) {
         throw err;
     }
-    console.log('Server running at:', server.info.uri);
+    console.log('Server running at:', server.info.uri); // eslint-disable-line no-console
 });
