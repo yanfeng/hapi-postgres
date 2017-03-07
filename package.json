@@ -2,13 +2,17 @@
   "name": "hapi-postgres",
   "version": "1.0.0",
   "description": "A boilerplate of using hapi to build REST APIs with postgreSQL as a document store",
-  "main": "bootstrap.js",
+  "main": "app.js",
+  "watch": {
+    "start:watch": "{src,test}/*.js"
+  },
   "scripts": {
     "start:watch": "node_modules\\.bin\\npm-run-all --parallel start lint:watch",
-    "start": "node bootstrap.js",
+    "start": "node app.js",
     "test": "test",
-    "lint": "node_modules\\.bin\\esw bootstrap.js src --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint": "node_modules\\.bin\\esw app.js src --color",
+    "lint:watch": "npm run lint -- --watch",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -43,6 +47,7 @@
   "devDependencies": {
     "eslint": "^3.16.0",
     "eslint-watch": "^3.0.0",
-    "npm-run-all": "^4.0.1"
+    "npm-run-all": "^4.0.1",
+    "npm-watch": "^0.1.8"
   }
 }

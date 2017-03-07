@@ -5,8 +5,8 @@ import massive from 'massive';
 import Joi from 'joi';
 import BookService from './bookService';
 
-const connectionString = 'postgres://postgres:123456@localhost/books';
-const db = massive.connectSync({connectionString: connectionString});
+const connectionString = 'postgres://postgres:123456@localhost/books'; //TODO: pass from command line
+const db = massive.connectSync({connectionString: connectionString});  //TODO: life cycle & error handling
 const bookService = new BookService(db);
 
 // Create a server with a host and port
